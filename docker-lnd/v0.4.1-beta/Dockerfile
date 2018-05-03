@@ -1,6 +1,6 @@
 FROM golang:1.10
 
-MAINTAINER Felix Weis <github.com/felixweis>
+LABEL maintainer="Felix Weis <twitter.com/felixweis>"
 
 # Expose lnd ports (server, rpc).
 EXPOSE 9735 10009
@@ -11,7 +11,7 @@ ENV GODEBUG netdns=cgo
 
 # Install dep to manage vendor.
 # Grab and install the latest version of lnd and all related dependencies.
-RUN git clone https://github.com/lightningnetwork/lnd $GOPATH/src/github.com/lightningnetwork/lnd
+RUN git clone -b 'v0.4.1-beta' --single-branch --depth 1 https://github.com/lightningnetwork/lnd $GOPATH/src/github.com/lightningnetwork/lnd
 
 # Make lnd folder default.
 WORKDIR $GOPATH/src/github.com/lightningnetwork/lnd
