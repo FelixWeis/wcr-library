@@ -6,7 +6,7 @@ LABEL maintainer="Felix Weis <twitter.com/FelixWeis>"
 RUN apk add --no-cache make git binutils
 
 RUN \
-    git clone --depth 1 --branch 'v0.4.2-beta' --single-branch \
+    git clone --depth 1 --branch 'master' --single-branch \
     https://github.com/lightningnetwork/lnd \
     $GOPATH/src/github.com/lightningnetwork/lnd
 
