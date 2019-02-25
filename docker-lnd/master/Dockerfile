@@ -3,7 +3,7 @@ LABEL maintainer="Felix Weis <twitter.com/FelixWeis>"
 
 # Install dep to manage vendor.
 # Grab and install the latest version of lnd and all related dependencies.
-RUN apk add --no-cache make git binutils
+RUN apk add --no-cache make git binutils g++
 
 RUN \
     git clone --depth 1 --branch 'master' --single-branch \
