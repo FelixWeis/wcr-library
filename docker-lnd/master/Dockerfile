@@ -1,4 +1,4 @@
-FROM golang:1.10-alpine3.7 as builder
+FROM golang:1.11-alpine3.9 as builder
 LABEL maintainer="Felix Weis <twitter.com/FelixWeis>"
 
 # Install dep to manage vendor.
@@ -18,7 +18,7 @@ RUN \
 
 RUN strip -s /go/bin/*
 
-FROM alpine:3.7
+FROM alpine:3.9
 RUN apk add --no-cache ca-certificates
 
 COPY --from=builder /go/bin/lnd /go/bin/lncli /usr/local/bin/
